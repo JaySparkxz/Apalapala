@@ -2,6 +2,7 @@ import pygame, sys
 from setting import *
 from tiles import Tile
 from level import Level
+from gameData import level_0
 # PYGAME SETUP 
 
 pygame.init()
@@ -20,7 +21,7 @@ while True:
             pygame.quit()
             sys.exit()
 
-    screen.fill('black')
+    screen.fill((30,30,30))
     level.run()
 
     pygame.display.update()

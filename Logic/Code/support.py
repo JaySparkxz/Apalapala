@@ -1,4 +1,5 @@
 from os import walk
+from csv import reader
 import pygame
 
 # # =========== TEST IMPORT FOLDER FUNCTION FOR TROUBLE SHOOTING ===========
@@ -22,3 +23,11 @@ def import_folder(path):
             surface_list.append(image_surf)
 
     return surface_list
+
+def import_csv_layout(path):
+    terrain_map = []
+    with open(path) as map:
+        level = reader(map, delimiter=',')
+        for row in level:
+            terrain_map.append(list(row))
+        return terrain_map

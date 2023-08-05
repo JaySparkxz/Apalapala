@@ -1,6 +1,5 @@
 import pygame 
 from tiles import Tile
-from setting import tile_size
 from player import Player
 from setting import*
 
@@ -47,7 +46,7 @@ class Level:
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
-                if player.direction.x < 0:
+                if player.direction.x <0:
                     player.rect.left = sprite.rect.right
                     player.on_left = True
                     self.current_x = player.rect.left
@@ -55,9 +54,9 @@ class Level:
                     player.rect.right = sprite.rect.left
                     player.on_Right = True
                     self.current_x = player.rect.right
-        if player.on_left and (player.rect.left < self.current_x) or player.direction.x >=0:
+        if player.on_left and (player.rect.left < self.current_x or player.direction.x >=0):
             player.on_left = False
-        if player.on_right and (player.rect.left > self.current_x) or player.direction.x <=0:
+        if player.on_right and (player.rect.right > self.current_x or player.direction.x <=0):
             player.on_right = False
 
     def vertical_movement_collision(self):
@@ -74,10 +73,8 @@ class Level:
                     player.rect.top = sprite.rect.bottom
                     player.direction.y = 0
                     player.on_ceiling = True
-
-        # if player.on_ground and player.direction.y < 0 or player.direction.y < 1:
-        if player.on_ground and player.direction.y < 0:
-                player.on_ground = False
+        if player.on_ground and player.direction.y < 0 or player.direction.y > 1:
+            player.on_ground = False
         if player.on_ceiling and player.direction.y > 0:
             player.on_ceiling = False
 
