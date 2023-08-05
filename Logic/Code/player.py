@@ -6,7 +6,7 @@ class Player(pygame.sprite.Sprite):
         self.import_character_assets()
         self.frame_index = 0 
         self.animation_speed = 0.15
-        self.image = self.animations['Player_Idle'][self.frame_index]
+        self.image = self.animations['Idle'][self.frame_index]
 
         # ===== TEMP PLAYEr PLACE HOLDER =====
         # self.image = pygame.Surface((32,64))
@@ -22,15 +22,15 @@ class Player(pygame.sprite.Sprite):
         self.jump_speed = -16
 
     def import_character_assets(self):
-        character_path = '../graphics/character/'
-        self.animations = {'Player_Idle':[],'Player_Run':[],'Player_Crouch_Idle':[],'Player_Crouch_Walk':[],'Player_Hurt':[],'Player_Jump':[],'Player_Land':[],'Player_Death':[]}
+        character_path = '../Graphics/Character/'
+        self.animations = {'Idle':[],'Run':[],'Crouch_Idle':[],'Crouch_Walk':[],'Hurt':[],'Jump':[],'Land':[],'Death':[]}
 
         for animation in self.animations.keys():
             full_path = character_path + animation
             self.animations[animation] = import_folder(full_path)
 
     def animate(self):
-        animation = self.animations['Player_Run']
+        animation = self.animations['Run']
 
         # LOOP OVER FRAME INDEX 
         self.frame_index += self.animation_speed
