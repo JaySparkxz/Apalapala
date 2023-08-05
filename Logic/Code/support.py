@@ -1,6 +1,17 @@
 from os import walk
 import pygame
 
+# # =========== TEST IMPORT FOLDER FUNCTION FOR TROUBLE SHOOTING ===========
+# character_path = '../Graphics/Character/Run'
+# def import_folder(path):
+#     for x,y,z in walk(path):
+#         print(x,y,z)
+
+# import_folder(character_path)
+# # =========== END TEST IMPORT FOLDER FUNCTION FOR TROUBLE SHOOTING ===========
+
+
+# ========== DELETE ABOVE CODE WHEN GAME IS COMPLETE ==========
 def import_folder(path):
     surface_list = []
 
