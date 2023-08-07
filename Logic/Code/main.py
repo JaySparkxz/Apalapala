@@ -20,8 +20,8 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-
-    screen.fill((30,30,30))
+    bg = pygame.image.load('../Graphics/clouds.jpeg')
+    pygame.Surface.blit(bg, screen, (0,0))
     level.run()
 
     pygame.display.update()
